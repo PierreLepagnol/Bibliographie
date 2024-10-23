@@ -29,8 +29,8 @@ jobs:
             # Run the script to replace .md with .qmd and add header
             - name: Replace .md with .qmd and add header
               run: |
-                  chmod +x ./convert-md-to-qmd.sh
-                  ./convert-md-to-qmd.sh
+                  chmod +x .github/workflows/convert-md-to-qmd.sh
+                  .github/workflows/convert-md-to-qmd.sh
 
             # Configure git user for committing
             - name: Configure Git user
