@@ -1,43 +1,32 @@
-name: Replace .md with .qmd and Add Header
+name: Copy and Modify Files
 
 on:
     push:
         branches:
-            - master # Trigger on push to the main branch
+            - master
 
 jobs:
-    replace_and_add_header:
+    copy-and-modify:
         runs-on: ubuntu-latest
-
         steps:
-            - name: Check out repository code
+            - name: Checkout repository
               uses: actions/checkout@v4
 
-            - name: Set up Git user
-              run: |
-                  git config --global user.name "github-actions[bot]"
-                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "16"
 
-            - name: Create a new branch
-              run: |
-                  git checkout -b update-md-to-qmd
-                  git fetch origin target-branch
-                  git checkout target-branch
+            - name: Install dependencies
+              run: npm install
 
-            - name: Replace .md files with .qmd files and add headers
-              run: |
-                  # Loop through all .md files
-                  for file in $(find . -type f -name "*.md"); do
-                    # Extract the filename without the extension
-                    filename=$(basename "$file" .md)
-                    # Prepend the header with the title
-                    echo -e "---\ntitle: $filename\n---\n$(cat "$file")" > "$file"
-                    # Rename the .md file to .qmd
-                    mv "$file" "${file%.md}.qmd"
-                  done
+            - name: Copy files and modify
+              run: node copy-modify-files.js
 
             - name: Commit and push changes
               run: |
+                  git config --global user.name 'github-actions[bot]'
+                  git config --global user.email 'github-actions[bot]@users.noreply.github.com'
                   git add .
-                  git commit -m "Replace .md with .qmd and add headers"
-                  git push origin target-branch
+                  git commit -m "Copy files from master and replace .md with .qmd"
+                  git push origin files_qmd
