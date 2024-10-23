@@ -3,7 +3,8 @@ name: Copy and Replace MD Files
 on:
     push:
         branches:
-            - master # Trigger on pushes to the master branch (or change to your source branch)
+            - main # Trigger on pushes to the main branch (or change to your source branch)
+
 permissions:
     contents: write # Grant write permission to the repository
 
@@ -25,22 +26,11 @@ jobs:
               run: |
                   git checkout files-qmd || git checkout -b files-qmd
 
-            # Copy files from the source branch (e.g., 'master') to the target branch
-            - name: Copy files from source branch to target branch
-              run: |
-                  git checkout master -- . # Adjust if your source branch is different
-                  git reset HEAD # Unstage files
-
-            # Replace .md files with .qmd files and add the header
+            # Run the script to replace .md with .qmd and add header
             - name: Replace .md with .qmd and add header
               run: |
-                  while IFS= read -r file; do
-                        filename=$(basename "$file" .md)
-                        # Move .md to .qmd
-                        mv "$file" "${file%.md}.qmd"
-                        # Add YAML header to the new .qmd file
-                        echo -e "---\ntitle: $filename\n---\n$(cat "${file%.md}.qmd")" > "${file%.md}.qmd"
-                      done < <(find ./ -type f -name "*.md")
+                  chmod +x ./convert-md-to-qmd.sh
+                  ./convert-md-to-qmd.sh
 
             # Configure git user for committing
             - name: Configure Git user
@@ -52,7 +42,7 @@ jobs:
             - name: Commit changes
               run: |
                   git add .
-                  git commit -m "Replace .md files with .qmd and add header"
+                  git commit -m "Replace .md files with .qmd and add/modify headers"
 
             # Push changes to the target branch
             - name: Push changes
