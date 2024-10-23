@@ -1,7 +1,6 @@
 name: Replace .md with .qmd and Add Header
 
 on:
-    workflow_dispatch:
     push:
         branches:
             - main # Trigger on push to the main branch
