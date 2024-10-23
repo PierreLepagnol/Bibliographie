@@ -13,31 +13,31 @@ jobs:
             - name: Check out repository code
               uses: actions/checkout@v4
 
-            # - name: Set up Git user
-            #   run: |
-            #       git config --global user.name "github-actions[bot]"
-            #       git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            - name: Set up Git user
+              run: |
+                  git config --global user.name "github-actions[bot]"
+                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-            # - name: Create a new branch
-            #   run: |
-            #       git checkout -b update-md-to-qmd
-            #       git fetch origin target-branch
-            #       git checkout target-branch
+            - name: Create a new branch
+              run: |
+                  git checkout -b update-md-to-qmd
+                  git fetch origin target-branch
+                  git checkout target-branch
 
-            # - name: Replace .md files with .qmd files and add headers
-            #   run: |
-            #       # Loop through all .md files
-            #       for file in $(find . -type f -name "*.md"); do
-            #         # Extract the filename without the extension
-            #         filename=$(basename "$file" .md)
-            #         # Prepend the header with the title
-            #         echo -e "---\ntitle: $filename\n---\n$(cat "$file")" > "$file"
-            #         # Rename the .md file to .qmd
-            #         mv "$file" "${file%.md}.qmd"
-            #       done
+            - name: Replace .md files with .qmd files and add headers
+              run: |
+                  # Loop through all .md files
+                  for file in $(find . -type f -name "*.md"); do
+                    # Extract the filename without the extension
+                    filename=$(basename "$file" .md)
+                    # Prepend the header with the title
+                    echo -e "---\ntitle: $filename\n---\n$(cat "$file")" > "$file"
+                    # Rename the .md file to .qmd
+                    mv "$file" "${file%.md}.qmd"
+                  done
 
-            # - name: Commit and push changes
-            #   run: |
-            #       git add .
-            #       git commit -m "Replace .md with .qmd and add headers"
-            #       git push origin target-branch
+            - name: Commit and push changes
+              run: |
+                  git add .
+                  git commit -m "Replace .md with .qmd and add headers"
+                  git push origin target-branch
