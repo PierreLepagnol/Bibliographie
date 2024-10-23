@@ -32,13 +32,13 @@ jobs:
             # Replace .md files with .qmd files and add the header
             - name: Replace .md with .qmd and add header
               run: |
-                  for file in $(find . -type f -name "*.md"); do
-                      filename=$(basename "$file" .md)
-                      # Move .md to .qmd
-                      mv "$file" "${file%.md}.qmd"
-                      # Add YAML header to the new .qmd file
-                      echo -e "---\ntitle: $filename\n---\n$(cat "${file%.md}.qmd")" > "${file%.md}.qmd"
-                    done
+                  while IFS= read -r file; do
+                        filename=$(basename "$file" .md)
+                        # Move .md to .qmd
+                        mv "$file" "${file%.md}.qmd"
+                        # Add YAML header to the new .qmd file
+                        echo -e "---\ntitle: $filename\n---\n$(cat "${file%.md}.qmd")" > "${file%.md}.qmd"
+                      done < <(find ./ -type f -name "*.md")
 
             # Configure git user for committing
             - name: Configure Git user
