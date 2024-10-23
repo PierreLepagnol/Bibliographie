@@ -1,8 +1,33 @@
+
+Question principale de recherche:
+
+> Comment apprendre un bon modèle avec des jeux de données de mauvaise qualité ?
+
+Question de recherche reformulée: 
+
+> Dans quelle mesure peut-on apprendre un bon modèle statistique pour traiter un problème de NLP avec des jeux de données non étiquetés ?
+
+
+--- 
+
+Durant l'année 1 : Je me suis concentré sur le prompting zero-shot et few-shots dans le contexte.
+Mais cette approche à des limites:
+
+- Modèles très gros nécessitant beaucoup de mémoire GPU et lent à l'inférence.
+
+Si on souhaite un modèle plus petit (résoudre les problèmes de latence, de coût, de consommation énergétique), les problèmes sont les suivants:
+
+- Performances variables et peu robustes: grand écart d'Accuracy suivant le prompt de classification choisi : nécéssitée d'optimiser le prompt.
+- Peu d'interprétabilité dans les résultats.
+- Mauvaise performances pour des tâches de prédictions structurées (cf: )
+
+
+
 Synthèse Structurée
 1. Introduction et Contexte
 Les documents de votre workspace se concentrent principalement sur l'optimisation et l'amélioration des modèles de langage (LLMs) à travers diverses techniques telles que la distillation des connaissances, l'augmentation des données, et l'adaptation à différents domaines et tâches.
 
-2. Distillation des Connaissances
+1. Distillation des Connaissances
 La distillation des connaissances est un thème récurrent dans plusieurs documents. Elle vise à transférer les connaissances d'un grand modèle de langage (LLM) vers un modèle plus petit et plus efficace.
 
 [Distillation/Evolving Knowledge Distillation with Large Language Models and Active Learning.md](Distillation/Evolving Knowledge Distillation with Large Language Models and Active Learning.md) :
