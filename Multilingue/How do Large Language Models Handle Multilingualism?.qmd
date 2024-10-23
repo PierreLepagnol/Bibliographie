@@ -1,3 +1,8 @@
+---
+title: How do Large Language Models Handle Multilingualism?
+subtitle: How do Large Language Models Handle Multilingualism?
+date: 2024-10-23 14:17:57.230461443 +0000
+---
 Le document intitulé **How do Large Language Models Handle Multilingualism?** cherche à  étudier comment les LLMs traitent les requêtes multilingues et comment on peut améliorer leurs capacités multilingues.
 ### 1. **Hypothèse du *Multilingual Workflow* (MWork)**
 

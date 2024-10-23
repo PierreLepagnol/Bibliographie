@@ -1,3 +1,8 @@
+---
+title: Self-Play Fine-Tuning
+subtitle: Self-Play Fine-Tuning
+date: 2024-10-23 14:17:57.226461461 +0000
+---
 The paper you shared titled **"Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models"** by Zixiang Chen et al. explores a novel method of improving the performance of Large Language Models (LLMs) using **Self-Play Fine-Tuning (SPIN)**. Below is a detailed breakdown of the key concepts:
 
 ### 1. **Objective**: 

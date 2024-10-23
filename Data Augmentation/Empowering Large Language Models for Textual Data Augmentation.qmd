@@ -1,3 +1,8 @@
+---
+title: Empowering Large Language Models for Textual Data Augmentation
+subtitle: Empowering Large Language Models for Textual Data Augmentation
+date: 2024-10-23 14:17:57.226461461 +0000
+---
 L'article **Empowering Large Language Models for Textual Data Augmentation** propose une approche appelée **Self-LLMDA**, pour améliorer les méthodes de d'augmentation de données par les LLM.
 
 ### Objectif et hypothèse

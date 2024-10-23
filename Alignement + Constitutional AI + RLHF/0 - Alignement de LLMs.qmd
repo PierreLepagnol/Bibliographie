@@ -1,3 +1,8 @@
+---
+title: 0 - Alignement de LLMs
+subtitle: 0 - Alignement de LLMs
+date: 2024-10-23 14:17:57.226461461 +0000
+---
 
 #preference-basedRL #ConstitutionalAI
 

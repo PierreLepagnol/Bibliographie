@@ -1,3 +1,8 @@
+---
+title: RLHF vs RLAI
+subtitle: RLHF vs RLAI
+date: 2024-10-23 14:17:57.226461461 +0000
+---
 The paper you provided, *"RLAIF vs. RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback,"* compares two methods of aligning language models with human-like behavior: Reinforcement Learning from Human Feedback (RLHF) and Reinforcement Learning from AI Feedback (RLAIF). Here’s a breakdown of its key elements:
 
 ### 1. Research Question and Objectives:

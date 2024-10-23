@@ -1,3 +1,8 @@
+---
+title: Draft
+subtitle: Draft
+date: 2024-10-23 14:17:57.230461443 +0000
+---
 
 Le papier [*Constitutional AI: Harmlessness from AI Feedback*](https://arxiv.org/pdf/2212.08073) presente une méthode pour entainer un système d'IA (chatbot) pour être à la fois **Aidant (helpful)**  et Inofenssif (harmless), primarily using AI-generated feedback rather than human labels for harmful behavior. Here's a structured breakdown of its main concepts:
 

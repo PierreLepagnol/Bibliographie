@@ -1,3 +1,8 @@
+---
+title: A Survey on Data Synthesis and Augmentation for Large Language Models
+subtitle: A Survey on Data Synthesis and Augmentation for Large Language Models
+date: 2024-10-23 14:17:57.226461461 +0000
+---
 Ce papier est un surbey sur les diverses techniques et approches visant à améliorer la disponibilité et la qualité des données d'entraînement pour les grands modèles de langage (LLM). 
 
 ### 1. **Objectif et Hypothèse**

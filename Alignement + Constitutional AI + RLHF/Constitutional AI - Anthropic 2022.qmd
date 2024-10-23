@@ -1,3 +1,8 @@
+---
+title: Constitutional AI - Anthropic 2022
+subtitle: Constitutional AI - Anthropic 2022
+date: 2024-10-23 14:17:57.226461461 +0000
+---
 Le papier [*Constitutional AI: Harmlessness from AI Feedback*](https://arxiv.org/pdf/2212.08073) présente une méthode pour entraîner des systèmes d'IA(ChatBots) à être à la fois **utiles (helpful)** et **inoffensifs (harmless)**, en utilisant les retours (critiques et revisions) générés par l'IA plutôt que des annotations humaines.
 
 Voici une explication structurée de ses concepts principaux :

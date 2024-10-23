@@ -1,3 +1,8 @@
+---
+title: Incremental Few-shot Text Classification with Multi-round New Classes - Formulation, Dataset and System
+subtitle: Incremental Few-shot Text Classification with Multi-round New Classes - Formulation, Dataset and System
+date: 2024-10-23 14:17:57.230461443 +0000
+---
 This paper, titled "Incremental Few-shot Text Classification with Multi-round New Classes," addresses a novel problem in natural language processing (NLP), namely, **incremental few-shot text classification**. The key challenge the authors aim to solve is how to handle the classification of text into an increasing number of categories over time, with only a few examples available for each new class. Here’s a breakdown of the paper’s core contributions and methods:
 
 ### 1. **Research Problem**

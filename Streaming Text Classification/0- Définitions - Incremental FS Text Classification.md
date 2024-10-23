@@ -1,3 +1,0 @@
-- Qu'est-ce que le ***Incremental Few-shot Text Classification*** ?
-- Quels datasets existe déjà ?
-- Comment créer un dataset de IFS-TC ?

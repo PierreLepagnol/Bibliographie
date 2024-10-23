@@ -1,3 +1,8 @@
+---
+title: Simulating Annotator through Multi-Agent LLMs for Active Learning and Knowledge Distillation
+subtitle: Simulating Annotator through Multi-Agent LLMs for Active Learning and Knowledge Distillation
+date: 2024-10-23 14:17:57.226461461 +0000
+---
 ## Motivation
 The development of high-performing machine learning models is often bottlenecked by the availability of labeled data, which traditionally relies on human annotators. This approach is not only costly and time-consuming but also poses challenges in consistency and scalability. With the advent of powerful Large Language Models (LLMs), there is a unique opportunity to simulate annotators through Multi-Agent systems. Such an approach can revolutionize Active Learning by providing immediate, high-quality annotations, and facilitate Knowledge Distillation by generating diverse and informative data representations. By leveraging the collective knowledge embedded in LLMs, we can address the pressing needs of rapid model development, adaptability to new domains, and reduction of biases, all while optimizing resources and maintaining data privacy.
 

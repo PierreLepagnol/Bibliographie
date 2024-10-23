@@ -1,3 +1,8 @@
+---
+title: Evolving Knowledge Distillation with Large Language Models and Active Learning
+subtitle: Evolving Knowledge Distillation with Large Language Models and Active Learning
+date: 2024-10-23 14:17:57.226461461 +0000
+---
 L'article intitulé [**Evolving Knowledge Distillation with Large Language Models and Active Learning**](https://aclanthology.org/2024.lrec-main.593.pdf) présente une méthode pour améliorer la distillation de LLM dans des petits modèles.
 ## Objectif
 L'objectif est d'améliorer la distillation en améliorant la génération d'exemples. Pour ne générer que des exemples *utiles* pour l'apprentissage du petit modèle.
