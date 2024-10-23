@@ -3,7 +3,7 @@ name: Copy and Replace MD Files
 on:
     push:
         branches:
-            - main # Trigger on pushes to the main branch (or change to your source branch)
+            - master # Trigger on pushes to the main branch (or change to your source branch)
 
 permissions:
     contents: write # Grant write permission to the repository
