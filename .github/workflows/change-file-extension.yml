@@ -3,7 +3,7 @@ name: Copy and Replace MD Files
 on:
     push:
         branches:
-            - master # Trigger on pushes to the main branch (or change to your source branch)
+            - master # Trigger on pushes to the master branch
 
 permissions:
     contents: write # Grant write permission to the repository
@@ -13,38 +13,35 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            # Checkout the repository
-            - name: Checkout the repository
+            # Checkout the repository and fetch all branches
+            - name: Checkout repository
               uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0 # Fetch all history for all branches and tags
 
-            # Fetch all branches
-            - name: Fetch all branches
-              run: git fetch --all
-
-            # Switch to the target branch (e.g., 'files-qmd')
-            - name: Checkout the target branch
+            # Create or switch to 'files-qmd' branch
+            - name: Switch to 'files-qmd' branch
               run: |
-                  git checkout files-qmd || git checkout -b files-qmd
+                  if git show-ref --verify --quiet refs/heads/files-qmd; then
+                    git checkout files-qmd
+                  else
+                    git checkout -b files-qmd
+                  fi
 
             # Run the script to replace .md with .qmd and add header
-            - name: Replace .md with .qmd and add header
+            - name: Convert .md to .qmd and add header
               run: |
                   chmod +x ./scripts/convert-md-to-qmd.sh
                   ./scripts/convert-md-to-qmd.sh
 
-            # Configure git user for committing
-            - name: Configure Git user
+            # Commit and push changes
+            - name: Commit and push changes
+              env:
+                  GIT_AUTHOR_NAME: github-actions[bot]
+                  GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
+                  GIT_COMMITTER_NAME: github-actions[bot]
+                  GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
               run: |
-                  git config --global user.name "github-actions"
-                  git config --global user.email "github-actions@github.com"
-
-            # Add and commit changes
-            - name: Commit changes
-              run: |
-                  git add .
-                  git commit -m "Replace .md files with .qmd and add/modify headers"
-
-            # Push changes to the target branch
-            - name: Push changes
-              run: |
+                  git add -A
+                  git commit -m "Replace .md files with .qmd and add/modify headers" || echo "No changes to commit"
                   git push origin files-qmd
