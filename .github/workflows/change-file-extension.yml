@@ -4,6 +4,8 @@ on:
     push:
         branches:
             - master # Trigger on pushes to the master branch (or change to your source branch)
+permissions:
+    contents: write # Grant write permission to the repository
 
 jobs:
     copy-and-replace:
