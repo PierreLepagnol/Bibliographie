@@ -4,7 +4,6 @@
 Objectif : Améliorer la diversité des jeux de données sans s'appuyer sur les LLMs.
 
 Ces méthodes vont des approches heuristiques simples aux méthodes basées sur des modèles génératifs.
-
 #### Approches heuristiques:
 
 - Remplacement de synonymes (Zhang et al., 2016) et le mélange de mots :

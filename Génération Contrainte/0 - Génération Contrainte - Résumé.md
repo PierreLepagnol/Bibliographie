@@ -44,7 +44,6 @@ On peut contraindre un modèle statistique à différentes phases d'entrainement
 
 - **Contraintes durant l'entraînement/l'apprentissage**
 - **Contraintes durant l'inférence**
-
 ### Contraintes durant l'entraînement
 
 Durant l'apprentissage, on cherche à ce faire apprendre la tâche au modèle. C'est à dire à faire répondre le modèle par les séquences nécéssaire pour résoudre la tâche de classification.
