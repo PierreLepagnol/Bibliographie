@@ -5,6 +5,7 @@ On peut utiliser un system externe à différent moment du décodage:
 1. Calcul des représentations.
 2. Calcul du prochain token.
 3. Calcul d'une réponse entière pour vérifier la réponse.
+
 ## Calul du prochain token
 
 Lors du calcul des logits/scores du prochain token, on utilise un système externe pour pondérer les scores de chacun des tokens. On peut réaliser cette opération avec:
