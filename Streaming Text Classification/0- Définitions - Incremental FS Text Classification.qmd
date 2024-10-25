@@ -1,0 +1,8 @@
+---
+title: 0- Définitions - Incremental FS Text Classification
+subtitle: 0- Définitions - Incremental FS Text Classification
+date: 2024-10-25 13:38:37.600580174 +0000
+---
+- Qu'est-ce que le ***Incremental Few-shot Text Classification*** ?
+- Quels datasets existe déjà ?
+- Comment créer un dataset de IFS-TC ?

@@ -1,0 +1,7 @@
+---
+title: MiniLLM - Knowledge Distillation of Large Language Models
+subtitle: MiniLLM - Knowledge Distillation of Large Language Models
+date: 2024-10-25 13:38:37.536579548 +0000
+---
+On change la function à optimiser pour la distillation : 
+KLD\[p|q\]==> KLD\[q|p\] 

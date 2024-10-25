@@ -1,0 +1,11 @@
+---
+title: @Smith2022
+subtitle: @Smith2022
+date: 2024-10-25 13:38:37.600580174 +0000
+---
+---
+title: Language Models in the Loop: Incorporating Prompting into Weak Supervision
+authors: Ryan Smith, Jason A. Fries, Braden Hancock, Stephen H. Bach
+year: 2022
+---
+

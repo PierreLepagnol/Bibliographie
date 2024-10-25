@@ -1,0 +1,19 @@
+---
+title: Adaptation à d'autres domaines et tâches ?
+subtitle: Adaptation à d'autres domaines et tâches ?
+date: 2024-10-25 13:38:37.532579510 +0000
+---
+
+#### 
+Banque/Finance
+- NLU 
+- QA
+- Text Classification : 
+	- Topic
+	- Sentiment
+	- NLI
+
+Medical
+- Jargon (FR) : 
+	- NLI
+	- QA

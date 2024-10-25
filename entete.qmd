@@ -1,0 +1,12 @@
+---
+title: entete
+subtitle: entete
+date: 2024-10-25 13:38:37.600580174 +0000
+---
+
+---
+title: "Compte Rendu - Mercredi 16-10-2024"
+subtitle: "Synthèse Bibliographiques et Questions de Recherche"
+date: today
+format: pdf
+---

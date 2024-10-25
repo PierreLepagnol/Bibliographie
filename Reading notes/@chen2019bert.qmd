@@ -1,0 +1,11 @@
+---
+title: @chen2019bert
+subtitle: @chen2019bert
+date: 2024-10-25 13:38:37.600580174 +0000
+---
+---
+title: BERT for joint intent classification and slot filling
+authors: Qian Chen, Zhu Zhuo, Wen Wang
+year: 2019
+---
+

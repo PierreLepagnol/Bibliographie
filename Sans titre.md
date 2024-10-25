@@ -1,1 +1,0 @@
- Direct Answer, Chain of Thoughts (CoT), self-consistency/verification, etc.

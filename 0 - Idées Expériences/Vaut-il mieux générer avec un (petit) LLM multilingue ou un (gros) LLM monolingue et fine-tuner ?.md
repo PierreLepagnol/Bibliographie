@@ -1,1 +1,0 @@
-Comparaison avec plusieurs langues

@@ -1,0 +1,20 @@
+---
+title: 0-Distillation de connaissance - NLP
+subtitle: 0-Distillation de connaissance - NLP
+date: 2024-10-25 13:38:37.536579548 +0000
+---
+
+Il y a 2 étapes : 
+
+
+1. Génération/Augementation de données: Avec ou Sans LLM.
+2. Labelisation des données générées: Avec ou sans LLM.
+3. Distillation
+## Génération/Augementation de cdonnées
+### Sans LLM
+### Avec LLM
+
+## Labelisation des données générées
+### Sans LLM
+### Avec LLM
+

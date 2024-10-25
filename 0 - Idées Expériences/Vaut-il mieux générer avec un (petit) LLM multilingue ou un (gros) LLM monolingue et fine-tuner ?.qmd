@@ -1,0 +1,6 @@
+---
+title: Vaut-il mieux générer avec un (petit) LLM multilingue ou un (gros) LLM monolingue et fine-tuner ?
+subtitle: Vaut-il mieux générer avec un (petit) LLM multilingue ou un (gros) LLM monolingue et fine-tuner ?
+date: 2024-10-25 13:38:37.532579510 +0000
+---
+Comparaison avec plusieurs langues

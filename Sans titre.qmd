@@ -1,0 +1,6 @@
+---
+title: Sans titre
+subtitle: Sans titre
+date: 2024-10-25 13:38:37.600580174 +0000
+---
+ Direct Answer, Chain of Thoughts (CoT), self-consistency/verification, etc.
