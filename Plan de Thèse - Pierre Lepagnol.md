@@ -7,20 +7,31 @@ Question de recherche reformulée:
 
 > Dans quelle mesure peut-on apprendre un bon modèle statistique pour traiter un problème de NLP avec des jeux de données non étiquetés ?
 
-
 --- 
 
 Durant l'année 1 : Je me suis concentré sur le prompting zero-shot et few-shots dans le contexte.
-Mais cette approche à des limites:
+Puis dans le prompting few-shots avec des exemples séléctionnés par recherche d'information.
+
+Mais l'approche par prompting à des limites, pour obtenir de bonne performance il faut
 
 - Modèles très gros nécessitant beaucoup de mémoire GPU et lent à l'inférence.
 
 Si on souhaite un modèle plus petit (résoudre les problèmes de latence, de coût, de consommation énergétique), les problèmes sont les suivants:
 
-- Performances variables et peu robustes: grand écart d'Accuracy suivant le prompt de classification choisi : nécéssitée d'optimiser le prompt.
+- Performances variables et peu robustes: grand écart d'Accuracy suivant le prompt de classification choisi : 
+	- Nécéssitée d'optimiser le prompt ou d'employer différentes stratégies de prompting ou decoding
 - Peu d'interprétabilité dans les résultats.
 - Mauvaise performances pour des tâches de prédictions structurées (cf: )
 
+Pour résoudre ces problèmes on peut contraindre/guider la génération pour obtenir de meilleur résultats: 
+
+- Chercher un meilleur prompt/Optimiser le prompt.
+- Utiliser des types de prompt différents : X of Thoughts Prompting - (X: Chain, Tree, Graph, etc)
+- Contraindre le support de décodage durant l'inférence
+- Pondéré les sorties avec un système annexe (Proxy-Tunning) 
+- Fine-tuner un modèle pour incorporer la contrainte durant l'apprentissage.
+	- Nécéssite un outil pour produire des pseudo-labels pour le fine-tuning + Un template pour le fine-tuning.
+	- pour être généré Distillation/Labelisation 
 
 
 Synthèse Structurée

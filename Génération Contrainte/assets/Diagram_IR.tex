@@ -1,0 +1,84 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+
+\usepackage{fontawesome5}
+\usetikzlibrary{shapes.geometric, arrows,shadows,decorations.pathreplacing,fit, positioning}
+
+
+\makeatletter
+\tikzset{
+    database/.style={
+        path picture={
+            \draw (0, 1.5*\database@segmentheight) circle [x radius=\database@radius,y radius=\database@aspectratio*\database@radius];
+            \draw (-\database@radius, 0.5*\database@segmentheight) arc [start angle=180,end angle=360,x radius=\database@radius, y radius=\database@aspectratio*\database@radius];
+            \draw (-\database@radius,-0.5*\database@segmentheight) arc [start angle=180,end angle=360,x radius=\database@radius, y radius=\database@aspectratio*\database@radius];
+            \draw (-\database@radius,1.5*\database@segmentheight) -- ++(0,-3*\database@segmentheight) arc [start angle=180,end angle=360,x radius=\database@radius, y radius=\database@aspectratio*\database@radius] -- ++(0,3*\database@segmentheight);
+        },
+        minimum width=2*\database@radius + \pgflinewidth,
+        minimum height=3*\database@segmentheight + 2*\database@aspectratio*\database@radius + \pgflinewidth,
+    },
+    database segment height/.store in=\database@segmentheight,
+    database radius/.store in=\database@radius,
+    database aspect ratio/.store in=\database@aspectratio,
+    database segment height=0.1cm,
+    database radius=0.25cm,
+    database aspect ratio=0.35,
+}
+\makeatother
+
+\begin{document}
+
+\begin{tikzpicture}[
+node distance=1cm,
+  process/.style={rectangle, draw=black!30, text centered, rounded corners, minimum width=4cm, minimum height=1.5cm},
+  documents/.style={rectangle, rounded corners, minimum width=4cm, minimum height=1cm, draw=black!30, fill=yellow!20, inner sep=10, text width=7cm},
+  arrow/.style={thick,->,>=stealth},
+  doublearrow/.style={thick,<->,>=stealth},
+  uiicon/.style={minimum size=1cm, text centered},
+  dbicon/.style={cylinder, shape border rotate=90, minimum height=1cm, minimum width=0.8cm, text centered, fill=gray!30}
+]
+
+\begin{scope}[node distance=1mm]
+
+    \node (utterance) [documents] {\textbf{Utterance}:"Add I will survive to my playlist"};
+    \node (intent) [documents,below=of utterance]{\textbf{Intent}:"AddToPlaylist"};
+    \node (usericon) [uiicon, above=of utterance] {\faUserCircle};
+
+    % \node (slots) [documents,below=of intent]{\textbf{Slots}: ?};
+\end{scope}
+
+\node[fit=(utterance)(intent)](input){};
+
+
+\node (Retrieval) [process, fill=red!30,right=of utterance] {Retrieval System};
+\node[database,label=above:Examples Database, database segment height=0.2cm,above=of Retrieval] (database) {};
+
+
+\node (examples) [documents,double copy shadow, right=of Retrieval] {\textbf{Example}:"add count von cosels obsession to jazzy romance";\\\textbf{Intent}:"AddToPlaylist"\\\textbf{Slots}: entity\_name: count von cosels obsession; playlist: jazzy romance};
+
+\draw[decorate,decoration={brace,mirror,amplitude=10pt},transform canvas={yshift=3mm}] 
+(examples.north east) -- (examples.north west) 
+node[midway,above=10pt] {K Most Relevant Examples};
+
+\draw[decorate,decoration={brace,mirror,amplitude=5pt}] 
+(input.north west) -- (input.south west) 
+node[midway] (hello){};
+
+\node[right=of examples](concat){\huge{$\oplus$}};
+% Generation Icon in the middle
+\node (generateicon) [right=of concat] {\includegraphics[width=.1\textwidth]{llama.png}};
+
+\node[documents, text width=4.3cm, right=of generateicon, ](response){entity\_name: I will survive;};
+
+% Arrows connecting the flow
+\draw [arrow] (utterance) -- (Retrieval);
+\draw [double, doublearrow] (Retrieval) -- (database);
+\draw [arrow] (Retrieval) -- (examples);
+
+\draw [arrow] (hello.west)  -| (-5,-1) |- (-1,-3) -|  (concat);
+\draw [arrow] (examples) -- (concat);
+\draw [arrow] (concat) -- (generateicon);
+\draw [arrow] (generateicon) -- (response);
+
+\end{tikzpicture}
+\end{document}

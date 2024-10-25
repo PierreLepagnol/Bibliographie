@@ -1,0 +1,137 @@
+\documentclass[9pt]{article}
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% It will improve the aesthetics of text in the typewriter font.
+\usepackage{graphicx,float}
+\usepackage{natbib}
+\usepackage{glossaries}
+
+\makeglossaries
+\input{glossary}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{Constrained Generation \& AR Structured Predictions for NLU Tasks}
+% \title{Génération structurée/contrainte avec LLMs}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Dans ce document, nous ferons une revue de littérature sur la \gls{ConstrainedGeneration}. 
+
+% Nous commencerons par une revue des tâches de NLP puis nous étudierons les méthodes de \gls{ConstrainedGeneration}. Enfin, nous nous intéresserons aux bibliothèques (python) implémentant la \gls{ConstrainedDecoding}.
+
+% Nous discuterons ensuite des tâches de \gls{SLU} et des méthodes de \gls{ConstrainedDecoding} utilisées dans ces tâches. Nous finirons par une revue des systèmes actuels de \gls{SLU} et des méthodes de \gls{ConstrainedDecoding} utilisées dans ces systèmes.
+
+% \section{Constat sur les tâches de NLP}
+% Les tâches de NLP sont structurées.
+
+% \begin{enumerate}
+%     \tightlist
+%     \item Classification
+%     \item NER
+% \end{enumerate}
+
+% \begin{figure}
+%     \includegraphics[width=\textwidth]{assets/Example_Slotfilling.pdf}
+%     \caption{Exemple des tâches de \gls{SLU}}
+% \end{figure}
+
+
+\section{Différents Types de Contraintes}\label{differents-types-de-contraintes}
+
+On ditingue des contraintes de différents niveaux :
+
+\begin{itemize}
+\tightlist
+\item Contrainte de domaine
+\item Contrainte de tâches
+\item Contrainte de vocabulaire
+\end{itemize}
+
+\subsection{Contraintes de domaine}\label{contraintes-de-domaine}
+
+Les modèles doivent souvent s'adapter à un contexte ou à un domaine particulier, tel que la médecine, la finance ou le droit. 
+Les contraintes de domaine visent à restreindre la génération de séquences à un style spécifique à ce domaine, permettant au modèle de produire des sorties plus adaptées et pertinentes. 
+
+Exemple : dans la génération de texte dans le domaine bancaire, le modèle doit respecter des formats, termes bancaires et abréviations spécifiques au domaine.
+
+\subsection{Contraintes de tâche}\label{contraintes-de-tuxe2che}
+
+Une contrainte de tâche se réfère à la génération de texte pour résoudre une tâche donnée/précise. 
+Cela peut inclure des contraintes liées à la syntaxe ou à la structure (exemple : formats JSON, XML, balisage HTML) ou à des sorties spécifiques pour une tâche de classification ou de génération. 
+On peut considerer que c'est une sorte un regroupement des deux types de contraintes précédentes. 
+
+Exemple : produire un résumé en respectant une longueur maximale (par exemple 200 caractères).
+
+\subsection{Contraintes de vocabulaire}{Contraintes de vocabulaire}\label{contraintes-de-vocabulaire}
+
+Ici, on impose un sous-ensemble du vocabulaire autorisé à un modèle. 
+Cela peut être utile dans des tâches de traduction, d'écriture de code ou d'autres scénarios où certains termes sont invalides ou, au contraire, doivent obligatoirement apparaître dans la sortie. 
+
+Exemple : dans une tâche de génération de code, le modèle doit limiter ses prédictions aux syntaxes valides pour un langage de programmation spécifique.
+
+\section{Phases d'application des contraintes}\label{phases-dapplication-des-contraintes}
+
+On peut contraindre un modèle statistique à différentes phases
+d'entrainement ou d'utilisation.
+
+\begin{itemize}
+    \tightlist
+    \item Contraintes durant l'entrainement/l'apprentissage
+    \item Contraintes durant l'inférence
+\end{itemize}
+
+\subsection{Contraintes durant l'entraînement}\label{contraintes-durant-lentrauxeenement}
+
+\begin{enumerate}
+    \def\labelenumi{\arabic{enumi}.}
+    \tightlist
+    \item Apprentissage général pour suivre des contraintes (Instruction-tuning, RLHF/AI).
+    \item Apprentissage multi-tâches avec des tokens/classes pour chaque tâches (apprendre au modèle à résoudre plusieurs tâches).
+    \item Apprentissage sur la tâche directement (Cas particulier de 2. - apprendre au modèle à résoudre la tâche).
+\end{enumerate}
+
+\subsection{Contraintes durant l'inférence}\label{contraintes-durant-linfuxe9rence}
+
+Durant l'inference on cherche à ce que le modèle prédise des séquences qui respectent des contraintes, on va donc modifier le support de décodage pour que le modèle produise des séquences qui respectent les contraintes.
+Modifier le support de décodage, c'est à dire repondérer les scores (logits, probabilités) des tokens en fonction des contraintes.
+On dit aussi que l'on biaise les prédictions du modèle.
+
+On peut le faire de manière brutale (en forçant les scores de certains tokens à 0) ou de manière plus douce (en reduisant les scores de ces tokens). 
+
+\begin{itemize}
+    \tightlist
+    \item Utiliser/modifier les paramètres de décodage: Top-K, Top-p, greedy search, beam-search\cite{anderson2017guidedopenvocabularyimage,post2018fastlexicallyconstraineddecoding,hu-etal-2019-improved,li2021guidedgenerationcauseeffect}, sampling, etc.
+    \item Cooperative decoding: on pondère les scores de chacun des tokens en fonction d'un système externe (discriminateur\cite{krause2020gedigenerativediscriminatorguided,dathathri2020plugplaylanguagemodels}, modèle de langue\cite{liu2024tuninglanguagemodelsproxy,Shi2024DecodingTimeLM,Fan2024OnGS}, Automates\cite{})
+    \item Stratégies de Prompting: Direct Answer, Chain of Thoughts (CoT), self-consistency/verification, etc.
+\end{itemize}
+
+On peut aussi combiner les différentes méthodes pour obtenir des résultats plus performants. 
+Par exemple, utiliser un prompt particulier + utiliser un discriminateur externe pour ranker les tokens. 
+
+\input{decoding_parameters}
+
+\input{cooperative_decoding}
+
+\input{prompting_strategies}
+
+\newpage
+
+\section{References}
+
+\bibliographystyle{plainnat}
+\bibliography{custom,Constrained_Decoding,cooperative_decoding,COLM}
+
+\newpage
+\section{Glossaire}
+% Print the glossary
+\printglossaries
+
+\end{document}

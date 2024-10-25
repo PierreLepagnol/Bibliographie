@@ -1,6 +1,7 @@
 
 Le papier [*Constitutional AI: Harmlessness from AI Feedback*](https://arxiv.org/pdf/2212.08073) presente une méthode pour entainer un système d'IA (chatbot) pour être à la fois **Aidant (helpful)**  et Inofenssif (harmless), primarily using AI-generated feedback rather than human labels for harmful behavior. Here's a structured breakdown of its main concepts:
 
+[@nayak2024learning]
 
 ### Contributions :
 1. **Distillation dynamique des connaissances** : EvoKD introduit une stratégie d'enseignement dynamique qui s'adapte en fonction des performances du modèle étudiant, contrastant avec la nature statique des méthodes de KD traditionnelles.

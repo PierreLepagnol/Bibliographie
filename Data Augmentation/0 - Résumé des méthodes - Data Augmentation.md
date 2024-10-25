@@ -11,7 +11,6 @@ Ces méthodes vont des approches heuristiques simples aux méthodes basées sur 
     - Avantages : efficacité computationnelle et simplicité
 - Technique d'Easy Data Augmentation (EDA) introduite par Wei et Zou (2019), qui utilise des perturbations au niveau des tokens – insertion, suppression et échange aléatoires – pour améliorer les performances dans une gamme de tâches de classification de texte.
 
-
 #### Approches basées sur des modèles:
 
 - Utilisation des modèles seq2seq:

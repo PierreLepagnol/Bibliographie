@@ -1,0 +1,136 @@
+
+\section{Awesome Constrained-Decoding (for Structured
+Sequences)}\label{awesome-constrained-decoding-for-structured-sequences}
+
+\subsection{Introduction}\label{introduction}
+
+Etat de l'art sur le décodage contraint/controlé.
+
+\subsection{Différents Types de Contraintes}\label{diffuxe9rents-types-de-contraintes}
+
+On ditingue des contraintes de différents niveaux :
+
+\begin{itemize}
+\tightlist
+\item
+  Contrainte de domaine
+\item
+  Contrainte de tâches
+\item
+  Contrainte de vocabulaire
+\end{itemize}
+
+\subsubsection{Contraintes de domaine}\label{contraintes-de-domaine}
+
+Les modèles doivent souvent s'adapter à un contexte ou à un domaine
+particulier, tel que la médecine, la finance ou le droit. Les
+contraintes de domaine visent à restreindre la génération de séquences à
+un style spécifique à ce domaine, permettant au modèle de produire des
+sorties plus adaptées et pertinentes.
+
+Exemple : dans la génération de texte dans le domaine bancaire, le
+modèle doit respecter des formats, termes bancaires et abréviations
+spécifiques au domaine.
+
+\subsubsection{Contraintes de
+vocabulaire}{Contraintes de vocabulaire}\label{contraintes-de-vocabulaire}
+
+Ici, on impose un sous-ensemble du vocabulaire autorisé à un modèle.
+Cela peut être utile dans des tâches de traduction, d'écriture de code
+ou d'autres scénarios où certains termes sont invalides ou, au
+contraire, doivent obligatoirement apparaître dans la sortie.
+
+Exemple : dans une tâche de génération de code, le modèle doit limiter
+ses prédictions aux syntaxes valides pour un langage de programmation
+spécifique.
+
+\subsubsection{Contraintes de tâche}\label{contraintes-de-tuxe2che}
+
+Une contrainte de tâche se réfère à la génération de texte pour résoudre
+une tâche donnée/précise. Cela peut inclure des contraintes liées à la
+syntaxe ou à la structure (exemple : formats JSON, XML, balisage HTML)
+ou à des sorties spécifiques pour une tâche de classification ou de
+génération.
+
+On peut considerer que c'est une sorte un regroupement des deux types de
+contraintes précédentes.
+
+Exemple : produire un résumé en respectant une longueur maximale (par
+exemple 200 caractères).
+
+\subsection{Phases d'application des contraintes}\label{phases-dapplication-des-contraintes}
+
+On peut contraindre un modèle statistique à différentes phases
+d'entrainement ou d'utilisation.
+
+\begin{itemize}
+\tightlist
+\item
+  Contraintes durant l'entrainement/l'apprentissage
+\item
+  Contraintes durant l'inférence
+\end{itemize}
+
+\subsubsection{Contraintes durant l'entraînement}\label{contraintes-durant-lentrauxeenement}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Apprentissage général pour suivre des contraintes (Instruction-tuning,
+  RLHF/AI).
+\item
+  Apprentissage multi-tâches avec des tokens/classes pour chaque tâches
+  (apprendre au modèle à résoudre plusieurs tâches).
+\item
+  Apprentissage sur la tâche directement (Cas particulier de 2. -
+  apprendre au modèle à résoudre la tâche).
+\end{enumerate}
+
+\subsubsection{Contraintes durant l'inférence}\label{contraintes-durant-linfuxe9rence}
+
+Durant l'inference on cherche à ce que le modèle prédise des séquences
+qui respectent des contraintes, on va donc modifier le support de
+décodage pour que le modèle produise des séquences qui respectent les
+contraintes. Modifier le support de décodage, c'est à dire repondérer
+les scores (logits, probabilités) des tokens en fonction des
+contraintes. On dit aussi que l'on biaise les prédictions du modèle. On
+peut le faire de manière brutale (en forçant les scores de certains
+tokens à 0) ou de manière plus douce (en reduisant les scores de ces
+tokens).
+
+\begin{itemize}
+\tightlist
+\item
+  Utiliser modifier les paramètres de décodage: Top-K, Top-p, greedy
+  search, beam-search, sampling, etc.
+\item
+  Stratégies de Prompting: Direct Answer, Chain of Thoughts (CoT),
+  self-consistency/verification, etc.
+\item
+  Cooperative decoding: on pondère les scores de chacun des tokens en
+  fonction d'un système externe (discriminateur, modèle de langue,
+  Automate)
+\end{itemize}
+
+On peut aussi combiner les différentes méthodes pour obtenir des
+résultats plus performants. Par exemple, utiliser un prompt particulier
++ utiliser un discriminateur externe pour ranker les tokens.
+
+\subsection{Métriques d'evaluation}\label{muxe9triques-devaluation}
+
+Ici je détaille les métriques pour évaluer le respect des contraintes
+dans les générations.
+
+\subsection{Applications Pratiques du Décodage Contraint}\label{applications-pratiques-du-duxe9codage-contraint}
+
+Ici je détaille les cas d'applications du décodage contraint (tâches et
+datasets)
+
+\subsection{Conclusion et Perspectives pour ma thèse}\label{conclusion-et-perspectives-pour-ma-thuxe8se}
+
+Ici, je résume et je donne des perspectives pour ma thèse (questions de
+recherches et pistes de travail).
+
+
+\end{document}
