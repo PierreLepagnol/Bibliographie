@@ -1,0 +1,1 @@
+- Top-K, Top-p, greedy search, beam-search [@anderson2017guidedopenvocabularyimage;post2018fastlexicallyconstraineddecoding;hu-etal-2019-improved;li2021guidedgenerationcauseeffect] sampling, etc.
