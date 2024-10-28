@@ -1,6 +1,10 @@
+---
+title: "Constrained Generation"
+date: "2021-10-01"
+---
 # Constrained Generation & AR Structured Predictions for NLU Tasks
 
-### Question principale de recherche:
+## Question principale de recherche:
 
 > Comment apprendre un bon modèle avec des jeux de données de mauvaise qualité ?
 
@@ -22,7 +26,7 @@ On distingue des contraintes de différents niveaux :
 
 ### Contraintes de domaine
 
-	Les modèles doivent souvent s'adapter à un contexte ou à un domaine particulier, tel que la médecine, la finance ou le droit. Les contraintes de domaine visent à restreindre la génération de séquences à un style spécifique à ce domaine, permettant au modèle de produire des sorties plus adaptées et pertinentes.
+Les modèles doivent souvent s'adapter à un contexte ou à un domaine particulier, tel que la médecine, la finance ou le droit. Les contraintes de domaine visent à restreindre la génération de séquences à un style spécifique à ce domaine, permettant au modèle de produire des sorties plus adaptées et pertinentes.
 
 *Exemple :* dans la génération de texte dans le domaine bancaire, le modèle doit respecter des formats, termes bancaires et abréviations spécifiques au domaine.
 
@@ -44,6 +48,7 @@ On peut contraindre un modèle statistique à différentes phases d'entrainement
 
 - **Contraintes durant l'entraînement/l'apprentissage**
 - **Contraintes durant l'inférence**
+
 ### Contraintes durant l'entraînement
 
 Durant l'apprentissage, on cherche à ce faire apprendre la tâche au modèle. C'est à dire à faire répondre le modèle par les séquences nécéssaire pour résoudre la tâche de classification.
